@@ -1,5 +1,5 @@
 ## Folders
-- **[ui](llama/ui.driver.md)**: The `ui` folder in the `llama.cpp` codebase contains a `theme` folder with Kotlin files that define the color values, theme settings, and typography styles for the UI of the Llama Android application.
+- **[ui](llama/ui.driver.md)**: The `ui` folder in the `llama.cpp` codebase contains the `theme` folder, which includes Kotlin files for defining color values, theme settings, and typography styles for the UI of the Llama Android application.
 
 ## Files
 - **[Downloadable.kt](llama/Downloadable.kt.driver.md)**: The `Downloadable.kt` file defines a `Downloadable` data class and a composable button for managing and displaying the download state of a file using Android's `DownloadManager`.

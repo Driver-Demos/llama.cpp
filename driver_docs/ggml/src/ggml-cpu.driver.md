@@ -1,7 +1,7 @@
 ## Folders
 - **[amx](ggml-cpu/amx.driver.md)**: The `amx` folder in the `llama.cpp` codebase contains source and header files that implement and declare functions for AMX-specific tensor operations, buffer management, and matrix multiplication, with support for various quantized data types and hardware configurations.
 - **[cmake](ggml-cpu/cmake.driver.md)**: The `cmake` folder in the `llama.cpp` codebase contains configuration files for detecting and setting up SIMD instruction sets during the build process.
-- **[kleidiai](ggml-cpu/kleidiai.driver.md)**: The `kleidiai` folder in the `llama.cpp` codebase contains files that implement and define CPU-specific optimizations and kernel selection for matrix multiplication and vector operations, particularly focusing on the Kleidiai backend and ARM CPU features.
+- **[kleidiai](ggml-cpu/kleidiai.driver.md)**: The `kleidiai` folder in the `llama.cpp` codebase contains files that implement and define CPU-specific optimizations and kernel operations for matrix multiplication and vector operations, focusing on the Kleidiai backend and ARM CPU features.
 - **[llamafile](ggml-cpu/llamafile.driver.md)**: The `llamafile` folder in the `llama.cpp` codebase contains files related to implementing and declaring a multithreaded CPU matrix multiplication function for single-precision general matrix operations.
 
 ## Files

@@ -1,6 +1,6 @@
 ## Folders
 - **[components](src/components.driver.md)**: The `components` folder in the `llama.cpp` codebase contains various React components and hooks for building a web UI, including features for chat interfaces, markdown rendering, modals, and settings management.
-- **[utils](src/utils.driver.md)**: The `utils` folder in the `llama.cpp` codebase contains various TypeScript utility files that provide React context management, reusable components, VSCode integration, utility functions, storage management, and type definitions for a web UI chat application.
+- **[utils](src/utils.driver.md)**: The `utils` folder in the `llama.cpp` codebase contains various TypeScript utility files that support the web UI by providing context management, reusable components, VSCode integration, utility functions, storage management, and type definitions.
 
 ## Files
 - **[App.tsx](src/App.tsx.driver.md)**: The `App.tsx` file in the `llama.cpp` codebase sets up the main application structure using React Router, providing a layout with a sidebar, header, chat screen, and settings dialog within a modal and context provider.

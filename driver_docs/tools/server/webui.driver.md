@@ -1,6 +1,6 @@
 ## Folders
 - **[public](webui/public.driver.md)**: The `public` folder in the `llama.cpp` codebase contains a `demo-conversation.json` file that provides a sample conversation for development purposes, illustrating interactions with LaTeX and code blocks.
-- **[src](webui/src.driver.md)**: The `src` folder in the `llama.cpp` codebase contains the main structure and utilities for a React-based web UI, including components, configuration, styling, and application setup files.
+- **[src](webui/src.driver.md)**: The `src` folder in the `llama.cpp` codebase contains the main structure and utilities for a React-based web UI, including components, utility functions, configuration settings, styling, and application initialization.
 
 ## Files
 - **[.gitignore](webui/.gitignore.driver.md)**: The `.gitignore` file in `llama.cpp/tools/server/webui/` specifies files and directories to be excluded from version control, including logs, build artifacts, and editor-specific files.

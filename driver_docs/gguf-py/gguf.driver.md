@@ -1,5 +1,5 @@
 ## Folders
-- **[scripts](gguf/scripts.driver.md)**: The `scripts` folder in the `llama.cpp` codebase contains Python scripts for manipulating GGUF format model files, including tasks such as endian conversion, metadata editing, hash calculation, and data dumping.
+- **[scripts](gguf/scripts.driver.md)**: The `scripts` folder in the `llama.cpp` codebase contains Python scripts for manipulating GGUF format model files, including tasks such as converting byte order, dumping metadata, editing via a GUI, calculating hashes, and modifying metadata.
 
 ## Files
 - **[__init__.py](gguf/__init__.py.driver.md)**: The `__init__.py` file in the `llama.cpp/gguf-py/gguf` directory initializes the `gguf` package by importing various modules such as constants, lazy, gguf_reader, gguf_writer, quants, tensor_mapping, vocab, utility, and metadata.

@@ -1,6 +1,6 @@
 ## Folders
 - **[cmake](ggml-vulkan/cmake.driver.md)**: The `cmake` folder in the `llama.cpp` codebase contains configuration files for setting up build settings, including compiler options and output directories, as exemplified by the `host-toolchain.cmake.in` file.
-- **[vulkan-shaders](ggml-vulkan/vulkan-shaders.driver.md)**: The `vulkan-shaders` folder in the `llama.cpp` codebase contains a comprehensive collection of Vulkan compute shaders and related configuration files for performing various mathematical, data processing, and machine learning operations, including dequantization, matrix multiplication, activation functions, and more, all optimized for parallel execution on GPU hardware.
+- **[vulkan-shaders](ggml-vulkan/vulkan-shaders.driver.md)**: The `vulkan-shaders` folder in the `llama.cpp` codebase contains a comprehensive collection of Vulkan compute shaders and related configuration files for performing various mathematical operations, data transformations, and optimizations, primarily focused on neural network and machine learning computations.
 
 ## Files
 - **[CMakeLists.txt](ggml-vulkan/CMakeLists.txt.driver.md)**: The `CMakeLists.txt` file in the `llama.cpp/ggml/src/ggml-vulkan` directory configures the build process for the Vulkan backend of the `ggml` library, including detecting host compilers, testing shader extension support, and setting up shader generation using `ExternalProject_Add`.

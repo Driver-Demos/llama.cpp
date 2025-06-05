@@ -1,5 +1,5 @@
 ## Folders
-- **[cpp](main/cpp.driver.md)**: The `cpp` folder in the `llama.cpp` codebase contains configuration and source files for integrating the Llama model with Android applications, including a CMake configuration file and JNI function implementations.
+- **[cpp](main/cpp.driver.md)**: The `cpp` folder in the `llama.cpp` codebase contains configuration and source files for integrating the Llama model with Android applications, including a CMake configuration file and a C++ source file for JNI functions.
 - **[java](main/java.driver.md)**: The `java` folder in the `llama.cpp` codebase contains an `android` subfolder that includes a Kotlin file for managing the lifecycle of a machine learning model on Android with native code integration.
 
 ## Files
