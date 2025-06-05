@@ -1,0 +1,2 @@
+# Purpose
+The file provides a description of a user interface theme modification for the LLaMA.cpp server. It details a change where chat buttons are repositioned to the top of the page for easier access, specifically to facilitate stopping actions without scrolling. The theme can be applied by running the server with the specified path argument, and an image is included to visually represent the change.

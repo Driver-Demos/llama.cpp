@@ -1,0 +1,8 @@
+
+## Files
+- **[app.context.tsx](utils/app.context.tsx.driver.md)**: The `app.context.tsx` file in the `llama.cpp` codebase provides a React context for managing application state related to conversations, messages, server properties, and configuration settings within a web UI.
+- **[common.tsx](utils/common.tsx.driver.md)**: The `common.tsx` file in the `llama.cpp` codebase provides reusable React components including a close button with an SVG icon, a link that opens in a new tab, and a button with tooltips functionality.
+- **[llama-vscode.ts](utils/llama-vscode.ts.driver.md)**: The `llama-vscode.ts` file implements a utility for handling messages and key events in the llama.cpp WebUI when used within an iframe in VSCode, allowing for text and context updates as well as escape key detection.
+- **[misc.ts](utils/misc.ts.driver.md)**: The `misc.ts` file in the `llama.cpp` codebase provides utility functions for handling streams, copying text to the clipboard, normalizing and filtering messages for API communication, managing CSS class names, implementing delays and throttling, cleaning URLs, and fetching server properties.
+- **[storage.ts](utils/storage.ts.driver.md)**: The `storage.ts` file in the `llama.cpp` codebase provides utilities for managing conversations and messages using IndexedDB, including functions for creating, updating, retrieving, and deleting conversations, as well as migrating data from localStorage.
+- **[types.ts](utils/types.ts.driver.md)**: The `types.ts` file in the `llama.cpp` codebase defines TypeScript interfaces and types for managing conversation branching, message structures, and server properties in a chat application.

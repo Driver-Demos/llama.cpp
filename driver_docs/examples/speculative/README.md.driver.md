@@ -1,0 +1,2 @@
+# Purpose
+This file provides a brief description and links to further information about the demonstration of speculative decoding and tree-based speculative decoding techniques within the llama.cpp project. It serves as a reference point for users or developers interested in understanding or implementing these specific decoding methods, directing them to relevant pull requests for detailed insights.

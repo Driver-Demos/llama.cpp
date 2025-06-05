@@ -1,0 +1,14 @@
+# Purpose
+This document is a security policy file, likely written in Markdown, that provides guidelines for securely using the LLaMA C++ software, which is a machine learning framework. The file offers narrow functionality focused on security practices, addressing various aspects such as handling untrusted models and inputs, ensuring data privacy, and operating in untrusted or multi-tenant environments. It emphasizes the importance of sandboxing, input sanitation, and maintaining up-to-date software to mitigate security risks. Additionally, the document outlines procedures for reporting vulnerabilities, stressing the need for private disclosure to allow time for issue resolution. This file is crucial for developers and users of the LLaMA C++ codebase, as it helps them understand and implement best practices for securing their applications and data.
+# Content Summary
+The document is a security policy guide for using the LLaMA C++ software securely. It provides detailed instructions and best practices for handling various security concerns associated with running models, particularly in untrusted environments. The guide is structured into sections that address specific security aspects, including untrusted models, untrusted inputs, data privacy, untrusted environments or networks, and multi-tenant environments.
+
+For untrusted models, the document advises executing them in secure, isolated environments like sandboxes to protect against potentially malicious code. It emphasizes that the trustworthiness of a model is not binary and requires careful evaluation based on the use case and risk tolerance.
+
+When dealing with untrusted inputs, the document highlights the importance of isolating the model and pre-processing inputs to prevent script injection risks. It suggests using sandboxing, pre-analysis, regular updates, and rigorous input sanitation techniques such as validation, filtering, encoding, and verification.
+
+Data privacy is addressed by recommending the use of sandboxed environments to prevent unauthorized data access and leaks. For untrusted environments or networks, the document advises against using certain backend functionalities and stresses the importance of verifying downloaded artifacts and encrypting data sent over networks.
+
+In multi-tenant environments, the document outlines the need for tenant isolation, resource allocation, model sharing precautions, and awareness of hardware attacks, particularly side-channel attacks on GPUs or TPUs.
+
+Finally, the document provides guidance on reporting vulnerabilities, emphasizing that issues related to secure usage are not vulnerabilities of LLaMA C++ itself. It instructs users to report discovered vulnerabilities privately through a security advisory, allowing the team time to address the issue before public disclosure. The project is maintained by volunteers, and a 90-day period is requested for fixing reported vulnerabilities.

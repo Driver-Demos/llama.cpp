@@ -1,0 +1,2 @@
+# Purpose
+The file is a GitHub Actions workflow configuration that automates the labeling of pull requests in the repository. It triggers on the `pull_request_target` event and runs a job named `labeler` with read permissions for contents and write permissions for pull requests. The job checks out the repository and uses the `actions/labeler` action to apply labels based on the configuration specified in `.github/labeler.yml`.

@@ -1,0 +1,2 @@
+# Purpose
+The file provides a command-line example for executing a program called `llama-speculative-simple`, which demonstrates basic greedy speculative decoding. It specifies various parameters such as model paths, input file, and decoding options like top-k sampling, temperature, and draft settings to control the speculative decoding process. This example is intended to guide users in running the program with specific configurations for testing or demonstration purposes.

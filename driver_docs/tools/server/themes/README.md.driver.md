@@ -1,0 +1,2 @@
+# Purpose
+This file provides a brief description of a theme named "LLaMA.cpp Server Wild Theme" for a server application. It instructs users on how to apply the theme by using the `--path` option with the server command, specifically pointing to the "wild" directory. Additionally, it includes a reference to an image file, `wild.png`, located within the "wild" directory, likely serving as a visual representation of the theme.

@@ -1,0 +1,2 @@
+# Purpose
+The file provides a brief description and usage instructions for a "Wild Theme" designed for the LLaMA.cpp server's user interface. It includes a comment indicating that the theme involves simple UI tweaks and provides a command-line option to activate the theme by running the server with the `--path=themes/wild` argument. Additionally, it includes a reference to an image file, `wild.png`, likely serving as a visual representation of the theme.

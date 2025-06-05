@@ -1,0 +1,2 @@
+# Purpose
+The provided content is a Jinja2 template script used to format and serialize a sequence of messages into a specific string format. It iterates over a collection of messages, checking the role of each message ('system', 'user', or 'assistant') and appending the message content with designated markers ('<|system|>', '<|user|>', '<|assistant|>') and an end marker ('<|end|>'). Additionally, it conditionally appends a prompt for the assistant or an end-of-sequence token based on the `add_generation_prompt` flag.

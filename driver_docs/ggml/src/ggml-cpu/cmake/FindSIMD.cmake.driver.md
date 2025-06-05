@@ -1,0 +1,14 @@
+# Purpose
+This file is a CMake configuration script used to check for the availability of specific CPU instruction set extensions, such as AVX, AVX2, AVX512, and FMA, on the system where the software is being built. It provides narrow functionality focused on determining whether the compiler and hardware support these advanced vector extensions, which are crucial for optimizing performance in applications that perform heavy numerical computations. The script defines small C code snippets for each instruction set and uses the `check_c_source_runs` function to compile and run these snippets, setting flags based on the results. The macro `check_sse` is used to automate the process of checking each instruction set and storing the results in cache variables, which can then be used to conditionally enable or disable features in the software that depend on these instruction sets. This file is relevant to the codebase as it ensures that the software can take advantage of hardware acceleration features when available, thereby optimizing performance.
+# Content Summary
+This configuration file is a CMake script designed to check for the availability of specific CPU instruction set extensions, namely AVX, AVX2, AVX512, and FMA, which are used to optimize performance in software applications. The script uses the `CheckCSourceRuns` module to compile and run small C code snippets that utilize these instruction sets, determining if the current build environment supports them.
+
+The script defines several C code snippets as strings, each corresponding to a different instruction set. These snippets include:
+- **AVX_CODE**: Tests the AVX (Advanced Vector Extensions) by setting a 256-bit vector to zero using `_mm256_set1_ps`.
+- **AVX2_CODE**: Tests the AVX2 extension by performing operations like absolute value computation and extraction of 64-bit integers from a 256-bit vector.
+- **AVX512_CODE**: Tests the AVX512 extension by initializing a 512-bit integer vector and comparing it using a mask.
+- **FMA_CODE**: Tests the FMA (Fused Multiply-Add) extension by performing a fused multiply-add operation on 256-bit vectors.
+
+The `check_sse` macro is defined to automate the process of checking each instruction set. It iterates over a list of compiler flags (specific to MSVC) and attempts to compile and run the corresponding C code snippet. If successful, it sets a cache variable indicating the support for that instruction set and stores the flags used. If the instruction set is not found, it marks the support as false.
+
+The script then uses this macro to check for each instruction set, setting corresponding variables (`GGML_AVX`, `GGML_AVX2`, `GGML_AVX512`) to `ON` or `OFF` based on the availability of the instruction sets. This configuration is crucial for developers to ensure that the software can leverage these CPU features for enhanced performance, or to fall back gracefully if they are not available.

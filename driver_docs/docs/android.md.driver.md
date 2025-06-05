@@ -1,0 +1,14 @@
+# Purpose
+This document is a markdown file that provides detailed instructions for building and running the `llama.cpp` software on Android devices. It serves a narrow purpose, specifically guiding users through the process of setting up and executing the software using either the Termux app or by cross-compiling with the Android NDK. The file is organized into two main sections: one for building on Android using Termux and another for cross-compiling using the Android NDK. Each section includes step-by-step commands and notes on configuration options, such as setting the `context-size` and handling library paths. This file is crucial for developers or users who wish to deploy `llama.cpp` on Android, ensuring they have the necessary environment and configurations to successfully build and run the application.
+# Content Summary
+This document provides detailed instructions for building and running the `llama.cpp` software on Android devices using two different methods: Termux and cross-compilation with the Android NDK.
+
+### Building on Android using Termux
+
+Termux is an Android terminal emulator and Linux environment app that allows users to run Linux-based applications on Android without requiring root access. The document outlines the steps to install and run `llama.cpp` using Termux. The process involves updating the package list, installing necessary packages like `git` and `cmake`, and following specific build instructions for CMake. After building the binaries, users are instructed to download a model file, preferably placing it in the home directory for optimal performance. The document provides a command to execute the `llama-cli` executable with specified parameters such as model file, context size, and prompt. It emphasizes setting a reasonable context size to prevent memory issues.
+
+### Cross-compiling using Android NDK
+
+The document also describes how to cross-compile `llama.cpp` for Android using the Android NDK on a host system. It requires setting up an environment for cross-compilation, including the Android SDK. The instructions include a CMake command with specific flags to configure the build for Android, targeting the `arm64-v8a` architecture and Android platform version 28. The document notes limitations such as the lack of support for OpenMP and `llamafile` on Android. After configuration, the build and installation steps are provided, followed by instructions to transfer the compiled binaries and model file to an Android device using `adb`. The document highlights the need to set the `LD_LIBRARY_PATH` to locate libraries correctly when running the executables on Android.
+
+Overall, the document serves as a comprehensive guide for developers looking to run `llama.cpp` on Android devices, detailing both direct installation via Termux and cross-compilation for more advanced use cases.

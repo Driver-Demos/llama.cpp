@@ -1,0 +1,2 @@
+# Purpose
+The file provides a brief overview and reference for the "Prompt Lookup Decoding" example within the llama.cpp project. It highlights key parameters (`ngram_min`, `ngram_max`, and `n_draft`) essential for configuring the lookup decoding process, which involves searching for ngram matches in prompts and drafting subsequent tokens. Additionally, it includes links to further information and discussions related to the implementation and usage of this feature.

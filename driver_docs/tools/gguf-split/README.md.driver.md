@@ -1,0 +1,2 @@
+# Purpose
+This document provides a brief overview of a command-line interface (CLI) tool designed to split or merge GGUF files. It outlines the available command-line options, including `--split` for dividing a GGUF file into multiple files, `--split-max-size` to specify the maximum size of each split file, `--split-max-tensors` to set the maximum number of tensors per split, and `--merge` to combine multiple GGUF files into one.

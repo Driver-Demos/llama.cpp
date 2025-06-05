@@ -1,0 +1,2 @@
+# Purpose
+This file is a Python requirements file used to specify dependencies for a project. It includes a reference to another requirements file (`requirements-convert_legacy_llama.txt`) and defines the installation of the `torch` library with version constraints, using different package indexes based on the machine architecture. For non-s390x architectures, it uses the stable PyTorch package index, while for s390x architectures, it uses the nightly builds index due to the unavailability of stable packages.

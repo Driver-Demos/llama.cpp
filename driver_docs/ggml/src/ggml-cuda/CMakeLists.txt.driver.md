@@ -1,0 +1,16 @@
+# Purpose
+This file is a CMake configuration script used to set up a build environment for a software project that utilizes NVIDIA's CUDA Toolkit. It specifies the minimum required version of CMake and checks for the presence of the CUDA Toolkit, configuring the build process based on the available CUDA version and the target GPU architectures. The script defines various CUDA architectures, enabling the compilation of CUDA code for specific GPU models, and sets up the necessary source and header files for the project. It also includes conditional compilation flags and options to optimize performance and manage dependencies, such as linking with CUDA libraries like `cublas` and `cudart`. The file is crucial for ensuring that the software is built correctly with the appropriate CUDA support, making it highly relevant to the codebase by facilitating the integration of GPU-accelerated computations.
+# Content Summary
+This CMake configuration file is designed to set up a build environment for a project that utilizes NVIDIA's CUDA Toolkit. The file begins by specifying a minimum required version of CMake (3.18) to ensure compatibility with certain CUDA features. It then attempts to locate the CUDA Toolkit using `find_package(CUDAToolkit)`. If the toolkit is found, the script proceeds to configure various CUDA-related settings and compile options.
+
+A key aspect of this configuration is the determination of CUDA architectures to target during compilation. The script checks for the presence of specific conditions and defines the `CMAKE_CUDA_ARCHITECTURES` variable accordingly. This variable specifies which GPU architectures the CUDA code should be compiled for, with options for both virtual and real architectures. The script includes detailed comments explaining the significance of each architecture code, such as "50" for Maxwell and "80" for Ampere, and the conditions under which they are used.
+
+The script also manages the inclusion of CUDA source and header files, using `file(GLOB ...)` to gather relevant files and append them to lists for compilation. It conditionally compiles different sets of source files based on the presence of certain flags, such as `GGML_CUDA_FA_ALL_QUANTS`.
+
+Several compile-time definitions are conditionally added based on the presence of specific flags, such as `GGML_CUDA_PEER_MAX_BATCH_SIZE`, `GGML_CUDA_USE_GRAPHS`, and others. These definitions control various aspects of the CUDA compilation process, such as enabling specific features or optimizations.
+
+The script also handles linking with CUDA libraries, differentiating between static and dynamic linking based on the `GGML_STATIC` flag. It ensures that the appropriate CUDA libraries, such as `cudart`, `cublas`, and `cublasLt`, are linked depending on the platform and configuration.
+
+Additionally, the script configures CUDA compiler flags, including options for fast math and extended lambda support. It also manages warnings and error handling, with options to treat warnings as errors and to suppress specific warnings.
+
+Finally, the script checks the host compiler version and type, adjusting flags accordingly to ensure compatibility and optimal performance. If the CUDA Toolkit is not found, the script terminates with a fatal error message, indicating that the build cannot proceed without it.

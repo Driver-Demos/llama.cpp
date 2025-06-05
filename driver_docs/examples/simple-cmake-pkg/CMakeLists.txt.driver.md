@@ -1,0 +1,2 @@
+# Purpose
+This CMake configuration file specifies the build instructions for the `llama-simple-cmake-pkg` project. It sets the minimum required CMake version to 3.12, defines the project and target name, and locates the required `Llama` package. The file configures the build process to compile the `simple.cpp` source file into an executable, links necessary libraries including `llama` and `ggml::all`, and enforces the use of C++17 standard features.

@@ -1,0 +1,10 @@
+
+## Files
+- **[arm64-apple-clang.cmake](cmake/arm64-apple-clang.cmake.driver.md)**: The `arm64-apple-clang.cmake` file configures the CMake build system for compiling with the Apple Clang compiler targeting the arm64 architecture on Darwin systems, setting specific compiler flags for architecture and warnings.
+- **[arm64-windows-llvm.cmake](cmake/arm64-windows-llvm.cmake.driver.md)**: The `arm64-windows-llvm.cmake` file configures the CMake build system for compiling C and C++ code targeting ARM64 architecture on Windows using the LLVM toolchain.
+- **[build-info.cmake](cmake/build-info.cmake.driver.md)**: The `build-info.cmake` file in the `llama.cpp` codebase is responsible for setting build information such as the build number, commit hash, compiler, and target, using Git and CMake commands.
+- **[common.cmake](cmake/common.cmake.driver.md)**: The `common.cmake` file in the `llama.cpp` codebase defines a function to add compile flags for handling warnings and errors based on the compiler and configuration settings.
+- **[git-vars.cmake](cmake/git-vars.cmake.driver.md)**: The `git-vars.cmake` file in the `llama.cpp` codebase retrieves the latest Git commit's SHA1, date, and subject for use in the CMake build process.
+- **[llama-config.cmake.in](cmake/llama-config.cmake.in.driver.md)**: The `llama-config.cmake.in` file is a CMake configuration template for setting up build and library paths, finding dependencies, and defining properties for the `llama` library in the `llama.cpp` codebase.
+- **[llama.pc.in](cmake/llama.pc.in.driver.md)**: The `llama.pc.in` file is a template for generating a pkg-config file for the LLaMA model port in C/C++, specifying installation paths, library dependencies, and compiler flags.
+- **[x64-windows-llvm.cmake](cmake/x64-windows-llvm.cmake.driver.md)**: The `x64-windows-llvm.cmake` file configures the CMake build system for a Windows environment using the x86_64 architecture and specifies `clang` and `clang++` as the C and C++ compilers, respectively.
