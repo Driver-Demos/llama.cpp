@@ -1,0 +1,2 @@
+# Purpose
+This file specifies a dependency requirement for a software project, indicating that the project requires the C Foreign Function Interface (CFFI) library, with a version approximately equal to 1.16.0. The use of the tilde equals (`~=`) operator allows for compatibility with any version that is greater than or equal to 1.16.0 but less than 1.17.0, ensuring minor updates and bug fixes are included while maintaining compatibility.

@@ -1,0 +1,19 @@
+# Purpose
+The provided content is a comprehensive documentation for a web frontend application named "SimpleChat," which is designed to interact with AI language models via server endpoints. This file serves as a user guide and developer reference, detailing how to set up, configure, and use the SimpleChat interface to communicate with AI models through the /completions or /chat/completions endpoints. It offers both broad and narrow functionalities, such as running the frontend using different server configurations, managing chat sessions, and customizing settings through a user interface or developer tools. The document is structured into sections that cover quickstart instructions, an overview of the application's capabilities, detailed usage guidelines, and developer notes for further customization and experimentation. The relevance of this file to the codebase lies in its role as a bridge between the user and the underlying AI model, providing a user-friendly interface for testing and interacting with AI-generated responses.
+# Content Summary
+The provided document is a comprehensive guide for setting up and using a web frontend called SimpleChat, which interfaces with a server to facilitate AI-driven chat interactions. The document is structured into several sections, each detailing different aspects of the software's functionality and configuration.
+
+### Quickstart and Overview
+The quickstart section provides a command to run the server from the build directory, specifying the model path and server path. The overview explains that SimpleChat is a web frontend designed to test the server's `/completions` or `/chat/completions` endpoints. It supports both single and multiple chat sessions with an AI language model, allowing users to see responses either in a complete form or streamed as they are generated. The frontend auto-saves chat sessions locally, enabling users to restore previous sessions. It is designed with responsive web design principles to adapt to different display sizes.
+
+### Usage Instructions
+The usage section outlines how to run the web frontend using either the server's tools or Python's HTTP server module. It provides detailed steps for setting up and accessing the frontend via a local browser. Users can modify global settings such as the base URL, chat mode, and response trimming options. The document also explains the differences between chat and completion modes, including how system prompts are handled and the flexibility given to users in managing message prefixes and chat templating.
+
+### Developer Notes
+The developer notes emphasize the simplicity and flexibility of the frontend, making it accessible to developers without a web frontend background. It describes the `gMe` object, which consolidates settings controlling the frontend's behavior. Developers can modify these settings using the browser's developer tools or the provided settings UI. Key settings include the base URL, streaming options, endpoint selection, and garbage trimming. The document also discusses the implications of chat history on the AI model's context window and provides guidance on managing this through settings like `iRecentUserMsgCnt` and `apiRequestOptions`.
+
+### OpenAI API Integration
+The document suggests that SimpleChat can potentially interface with OpenAI's API for minimal chat experimentation. It provides instructions for configuring the base URL, request body, and headers to facilitate this integration, although it notes that this functionality has not been tested due to the lack of a free tier for API testing.
+
+### Conclusion
+The document concludes with an acknowledgment of the contributions of open-source and open-model developers. Overall, the document serves as a detailed guide for developers and end-users to configure, run, and experiment with the SimpleChat frontend, providing flexibility and control over chat interactions with AI models.

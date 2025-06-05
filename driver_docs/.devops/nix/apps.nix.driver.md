@@ -1,0 +1,2 @@
+# Purpose
+This JSON-like configuration file defines a Nix expression for generating application attributes. It specifies a list of binaries related to "llama" and uses a function `mkApp` to create application configurations for each binary, setting the type to "app" and defining the program path using a default package location. The `lib.genAttrs` function is used to apply `mkApp` to each binary, generating the necessary attributes.

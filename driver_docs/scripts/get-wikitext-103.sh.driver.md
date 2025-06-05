@@ -1,0 +1,2 @@
+# Purpose
+This Bash script is a narrow utility script designed to download a specific dataset from a given URL, in this case, the "wikitext-103-raw-v1.zip" file from an Amazon S3 bucket. It is not an executable or a library file but rather a simple script intended to automate the download process. Additionally, the script provides usage instructions for a separate executable, `llama-perplexity`, indicating how to run it with specific parameters, though it does not execute this command itself. The script concludes with an `exit 0` statement, signifying successful completion.

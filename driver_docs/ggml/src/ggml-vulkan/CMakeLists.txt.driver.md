@@ -1,0 +1,16 @@
+# Purpose
+This file is a CMake configuration script, which is used to manage the build process of a software project, specifically one that involves Vulkan, a graphics and compute API. The script sets the minimum required version of CMake, configures policies, and checks for the presence of the Vulkan package, including its components like `glslc`. It defines functions to detect the host compiler and test shader extension support, which are crucial for ensuring compatibility and functionality of the shaders used in the project. The script also configures the build environment, including handling cross-compilation scenarios, and uses `ExternalProject_Add` to manage the build and installation of external projects, such as `vulkan-shaders-gen`. This file is integral to the codebase as it automates the setup and configuration of the build environment, ensuring that all necessary components and dependencies are correctly configured and available for the successful compilation and execution of the Vulkan-based application.
+# Content Summary
+This CMake configuration file is designed to set up a build environment for a project that utilizes Vulkan, specifically focusing on shader compilation and extension support. The file begins by specifying a minimum required version of CMake (3.19) and setting a policy (CMP0114) to its new behavior. It then attempts to find the Vulkan package, particularly the `glslc` component, which is essential for compiling GLSL shaders.
+
+A key function defined in this file is `detect_host_compiler`, which determines the appropriate C and C++ compilers based on the host system, differentiating between Windows and other operating systems. This function sets the compiler paths in the parent scope for later use.
+
+Another critical function, `test_shader_extension_support`, checks if specific Vulkan shader extensions are supported by the `glslc` compiler. It executes a process to compile a test shader file and sets a result variable to indicate support (ON/OFF). If an extension is supported, it adds compile definitions and appends arguments to a list for further processing.
+
+The configuration checks if Vulkan is found and, if so, proceeds to add a backend library (`ggml-vulkan`) with specified source and header files. It sets up various CMake arguments for building and installing Vulkan shaders, including handling different build types (Debug, Release, etc.).
+
+The file also includes logic for cross-compiling, setting up a toolchain file if necessary, and using `ExternalProject_Add` to manage the build and installation of the `vulkan-shaders-gen` project. This approach ensures that shader generation is handled as an external project, with dependencies and build steps clearly defined.
+
+Several conditional compile definitions are added based on various flags (e.g., `GGML_VULKAN_CHECK_RESULTS`, `GGML_VULKAN_DEBUG`), which enable different debugging and validation features.
+
+Finally, the file sets up custom commands to generate Vulkan shaders, specifying input and output directories, and dependencies. It ensures that the generated shader source and header files are included in the `ggml-vulkan` target sources, completing the setup for shader compilation and integration into the project. If Vulkan is not found, a warning message is issued.

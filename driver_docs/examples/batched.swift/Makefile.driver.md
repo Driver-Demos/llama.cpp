@@ -1,0 +1,2 @@
+# Purpose
+This Makefile defines a phony target named `build` for a macOS project using Xcode. The `build` target executes the `xcodebuild` command to compile the project with the scheme `llama-batched-swift`, specifying a generic macOS platform and a custom derived data path. After building, it removes any existing symbolic link to `llama-batched-swift` and creates a new symbolic link pointing to the freshly built executable in the Debug directory.

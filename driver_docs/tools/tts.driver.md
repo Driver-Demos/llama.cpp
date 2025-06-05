@@ -1,0 +1,7 @@
+
+## Files
+- **[CMakeLists.txt](tts/CMakeLists.txt.driver.md)**: The `CMakeLists.txt` file in `llama.cpp/tools/tts` configures the build process for the `llama-tts` executable, specifying its source file, installation, library dependencies, and C++ standard.
+- **[convert_pt_to_hf.py](tts/convert_pt_to_hf.py.driver.md)**: The `convert_pt_to_hf.py` file in the `llama.cpp` codebase is a script for converting a PyTorch model into a Hugging Face format, specifically for the WavTokenizer, and saving it in the safetensors format along with generating associated metadata and configuration files.
+- **[README.md](tts/README.md.driver.md)**: The `README.md` file in the `llama.cpp/tools/tts` directory provides instructions for setting up and running a Text To Speech example using models from OuteAI, including steps for model conversion, quantization, and execution with or without a server.
+- **[tts-outetts.py](tts/tts-outetts.py.driver.md)**: The `tts-outetts.py` file in the `llama.cpp` codebase is a tool for converting text into audio by generating a spectrogram from text input and processing it into an audio waveform, which is then saved as a WAV file.
+- **[tts.cpp](tts/tts.cpp.driver.md)**: The `tts.cpp` file in the `llama.cpp` codebase implements a text-to-speech (TTS) system that processes input text, converts it into audio codes, and generates a WAV audio file, supporting different versions of the OuteTTS model.

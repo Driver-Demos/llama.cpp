@@ -1,0 +1,4 @@
+
+## Files
+- **[json.hpp](nlohmann/json.hpp.driver.md)**: The `json.hpp` file in the `llama.cpp` codebase is a comprehensive C++ header-only library for JSON handling, providing robust functionalities for parsing, serializing, and manipulating JSON data, supporting both DOM and SAX style parsing, and handling various binary formats like CBOR, MessagePack, UBJSON, BJData, and BSON, with extensive type-safe operations, utility functions, and custom exception handling to ensure efficient and flexible JSON processing across different C++ standards.
+- **[json_fwd.hpp](nlohmann/json_fwd.hpp.driver.md)**: The `json_fwd.hpp` file in the `llama.cpp` codebase provides forward declarations and namespace configurations for the nlohmann JSON library, including templates for JSON serialization and data structures like `basic_json` and `json_pointer`.

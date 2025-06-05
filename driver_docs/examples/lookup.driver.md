@@ -1,0 +1,8 @@
+
+## Files
+- **[CMakeLists.txt](lookup/CMakeLists.txt.driver.md)**: The `CMakeLists.txt` file in the `llama.cpp/examples/lookup` directory configures the build process for several executables (`llama-lookup`, `llama-lookup-create`, `llama-lookup-merge`, and `llama-lookup-stats`) by specifying their source files, linking libraries, and setting the C++ standard to C++17.
+- **[lookup-create.cpp](lookup/lookup-create.cpp.driver.md)**: The `lookup-create.cpp` file in the `llama.cpp` codebase initializes the llama backend, tokenizes a given prompt, updates an n-gram cache, and saves the cache to a specified file.
+- **[lookup-merge.cpp](lookup/lookup-merge.cpp.driver.md)**: The `lookup-merge.cpp` file in the `llama.cpp` codebase provides a utility to merge multiple lookup cache files into a single file.
+- **[lookup-stats.cpp](lookup/lookup-stats.cpp.driver.md)**: The `lookup-stats.cpp` file in the `llama.cpp` codebase implements a program that initializes a language model, tokenizes input prompts, and simulates token drafting and acceptance using n-gram caches to gather statistics on the drafting process.
+- **[lookup.cpp](lookup/lookup.cpp.driver.md)**: The `lookup.cpp` file in the `llama.cpp` codebase is an example program that initializes a language model, processes input tokens, and performs token prediction using n-gram caching and sampling techniques.
+- **[README.md](lookup/README.md.driver.md)**: The `README.md` file in `llama.cpp/examples/lookup` provides a demonstration of Prompt Lookup Decoding, detailing key parameters such as `ngram_min`, `ngram_max`, and `n_draft`, and includes links for further information.

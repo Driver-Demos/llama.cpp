@@ -1,0 +1,7 @@
+
+## Files
+- **[validate-apps.sh](apple/validate-apps.sh.driver.md)**: The `validate-apps.sh` file is a shell script that sequentially runs validation scripts for iOS, macOS, visionOS, and tvOS applications.
+- **[validate-ios.sh](apple/validate-ios.sh.driver.md)**: The `validate-ios.sh` file is a Bash script designed to validate an iOS application with an embedded `llama.xcframework` using SwiftUI, providing options for authentication and performing various checks to ensure the app and framework are correctly built and embedded.
+- **[validate-macos.sh](apple/validate-macos.sh.driver.md)**: The `validate-macos.sh` file is a Bash script designed to validate a macOS application with an embedded `llama.xcframework` using SwiftUI, providing options for authentication via Apple ID and performing various checks to ensure the app and framework are correctly built and packaged.
+- **[validate-tvos.sh](apple/validate-tvos.sh.driver.md)**: The `validate-tvos.sh` file is a Bash script designed to validate a tvOS application with an embedded `llama.xcframework` using SwiftUI, providing options for authentication via Apple ID and handling the build, archive, and validation processes.
+- **[validate-visionos.sh](apple/validate-visionos.sh.driver.md)**: The `validate-visionos.sh` file is a Bash script designed to validate a visionOS application with an embedded `llama.xcframework` using SwiftUI, providing options for authentication via Apple ID and performing various checks and validations on the app build process.

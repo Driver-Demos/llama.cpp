@@ -1,0 +1,10 @@
+
+## Files
+- **[CMakeLists.txt](cvector-generator/CMakeLists.txt.driver.md)**: The `CMakeLists.txt` file in `llama.cpp/tools/cvector-generator` configures the build process for the `llama-cvector-generator` executable, specifying source files, installation rules, library dependencies, and C++ standard requirements.
+- **[completions.txt](cvector-generator/completions.txt.driver.md)**: The `completions.txt` file in the `llama.cpp` codebase contains a list of incomplete phrases and sentences, likely used for generating or testing text completions.
+- **[cvector-generator.cpp](cvector-generator/cvector-generator.cpp.driver.md)**: The `cvector-generator.cpp` file in the `llama.cpp` codebase implements a tool for generating control vectors by processing pairs of positive and negative prompts, calculating their differences, and optionally applying dimensionality reduction techniques like PCA or mean, before exporting the results to a file.
+- **[mean.hpp](cvector-generator/mean.hpp.driver.md)**: The `mean.hpp` file in the `llama.cpp` codebase defines a function to compute and normalize the mean vector from input tensors.
+- **[negative.txt](cvector-generator/negative.txt.driver.md)**: The `negative.txt` file contains scripted interactions for an assistant to simulate responses of extreme sadness and a bad mood.
+- **[pca.hpp](cvector-generator/pca.hpp.driver.md)**: The `pca.hpp` file in the `llama.cpp` codebase provides an implementation of Principal Component Analysis (PCA) using power iteration, supporting both CPU and GPU backends, and includes functionality for debugging and handling tensor operations.
+- **[positive.txt](cvector-generator/positive.txt.driver.md)**: The `positive.txt` file contains scripted interactions where the system prompts the assistant to act as an extremely happy person, responding with enthusiastic and positive replies.
+- **[README.md](cvector-generator/README.md.driver.md)**: The `README.md` file in the `llama.cpp/tools/cvector-generator` directory provides instructions and examples for generating control vectors using gguf models with the `cvector-generator` tool.

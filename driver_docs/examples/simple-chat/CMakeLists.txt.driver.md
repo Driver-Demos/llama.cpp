@@ -1,0 +1,2 @@
+# Purpose
+This CMake configuration file defines the build process for a C++ executable named "llama-simple-chat" from the source file "simple-chat.cpp". It specifies that the executable should be linked with the "llama" library and any necessary thread libraries, and it enforces the use of C++17 standard features. Additionally, it includes instructions to install the built executable as a runtime target.

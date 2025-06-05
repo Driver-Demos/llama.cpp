@@ -1,0 +1,362 @@
+# Purpose
+This C++ source code file defines a comprehensive framework for managing and interacting with various large language models (LLMs) under the "llama" namespace. The file includes several header files that likely provide additional functionality related to architecture, graph processing, hyperparameters, memory management, and vocabulary handling. The primary focus of this file is to define structures and functions that facilitate the loading, configuration, and manipulation of LLMs, as evidenced by the extensive enumeration of model types (`llm_type`) and the detailed `llama_model` structure.
+
+The `llama_model` structure is central to this file, encapsulating various components necessary for a language model, such as layers, embeddings, normalization tensors, and metadata. It provides methods for loading model parameters, architecture, vocabulary, and tensors, as well as functions to retrieve model information and manage device-specific operations. The file also defines several other structures, such as `llama_layer`, `llama_layer_posnet`, and `llama_layer_convnext`, which represent different components of a model layer, including attention mechanisms and feed-forward networks. This code is designed to be part of a larger system, likely serving as a library or module that can be imported and utilized by other parts of a software application to work with LLMs.
+# Imports and Dependencies
+
+---
+- `llama.h`
+- `llama-arch.h`
+- `llama-graph.h`
+- `llama-hparams.h`
+- `llama-memory.h`
+- `llama-vocab.h`
+- `memory`
+- `string`
+- `unordered_map`
+- `vector`
+
+
+# Global Variables
+
+---
+### llm\_type\_name
+- **Type**: `function`
+- **Description**: The `llm_type_name` is a function that takes an `llm_type` enumeration value as an argument and returns a constant character pointer. This function is likely used to convert the enumeration value representing a model type into a human-readable string name.
+- **Use**: This function is used to obtain the string representation of a model type from its enumeration value.
+
+
+---
+### llama\_internal\_get\_tensor\_map
+- **Type**: `const std::vector<std::pair<std::string, ggml_tensor *>> &`
+- **Description**: The `llama_internal_get_tensor_map` is a function that returns a constant reference to a vector of pairs, where each pair consists of a string and a pointer to a `ggml_tensor` structure. This function is designed to provide access to a map of tensor names and their corresponding tensor pointers within a given `llama_model`.
+- **Use**: This function is used to retrieve a mapping of tensor names to their respective tensor pointers from a `llama_model` for internal testing purposes.
+
+
+# Data Structures
+
+---
+### llm\_type<!-- {{#data_structure:llm_type}} -->
+- **Type**: `enum`
+- **Members**:
+    - `LLM_TYPE_UNKNOWN`: Represents an unknown or unspecified LLM type.
+    - `LLM_TYPE_14M`: Represents a model with 14 million parameters.
+    - `LLM_TYPE_17M`: Represents a model with 17 million parameters.
+    - `LLM_TYPE_22M`: Represents a model with 22 million parameters.
+    - `LLM_TYPE_33M`: Represents a model with 33 million parameters.
+    - `LLM_TYPE_60M`: Represents a model with 60 million parameters.
+    - `LLM_TYPE_70M`: Represents a model with 70 million parameters.
+    - `LLM_TYPE_80M`: Represents a model with 80 million parameters.
+    - `LLM_TYPE_109M`: Represents a model with 109 million parameters.
+    - `LLM_TYPE_137M`: Represents a model with 137 million parameters.
+    - `LLM_TYPE_160M`: Represents a model with 160 million parameters.
+    - `LLM_TYPE_190M`: Represents a model with 190 million parameters.
+    - `LLM_TYPE_220M`: Represents a model with 220 million parameters.
+    - `LLM_TYPE_250M`: Represents a model with 250 million parameters.
+    - `LLM_TYPE_270M`: Represents a model with 270 million parameters.
+    - `LLM_TYPE_335M`: Represents a model with 335 million parameters.
+    - `LLM_TYPE_410M`: Represents a model with 410 million parameters.
+    - `LLM_TYPE_450M`: Represents a model with 450 million parameters.
+    - `LLM_TYPE_475M`: Represents a model with 475 million parameters.
+    - `LLM_TYPE_770M`: Represents a model with 770 million parameters.
+    - `LLM_TYPE_780M`: Represents a model with 780 million parameters.
+    - `LLM_TYPE_0_5B`: Represents a model with 0.5 billion parameters.
+    - `LLM_TYPE_0_6B`: Represents a model with 0.6 billion parameters.
+    - `LLM_TYPE_1B`: Represents a model with 1 billion parameters.
+    - `LLM_TYPE_1_3B`: Represents a model with 1.3 billion parameters.
+    - `LLM_TYPE_1_4B`: Represents a model with 1.4 billion parameters.
+    - `LLM_TYPE_1_5B`: Represents a model with 1.5 billion parameters.
+    - `LLM_TYPE_1_6B`: Represents a model with 1.6 billion parameters.
+    - `LLM_TYPE_1_7B`: Represents a model with 1.7 billion parameters.
+    - `LLM_TYPE_1_8B`: Represents a model with 1.8 billion parameters.
+    - `LLM_TYPE_2B`: Represents a model with 2 billion parameters.
+    - `LLM_TYPE_2_8B`: Represents a model with 2.8 billion parameters.
+    - `LLM_TYPE_2_9B`: Represents a model with 2.9 billion parameters.
+    - `LLM_TYPE_3B`: Represents a model with 3 billion parameters.
+    - `LLM_TYPE_4B`: Represents a model with 4 billion parameters.
+    - `LLM_TYPE_6B`: Represents a model with 6 billion parameters.
+    - `LLM_TYPE_6_9B`: Represents a model with 6.9 billion parameters.
+    - `LLM_TYPE_7B`: Represents a model with 7 billion parameters.
+    - `LLM_TYPE_8B`: Represents a model with 8 billion parameters.
+    - `LLM_TYPE_9B`: Represents a model with 9 billion parameters.
+    - `LLM_TYPE_11B`: Represents a model with 11 billion parameters.
+    - `LLM_TYPE_12B`: Represents a model with 12 billion parameters.
+    - `LLM_TYPE_13B`: Represents a model with 13 billion parameters.
+    - `LLM_TYPE_14B`: Represents a model with 14 billion parameters.
+    - `LLM_TYPE_15B`: Represents a model with 15 billion parameters.
+    - `LLM_TYPE_16B`: Represents a model with 16 billion parameters.
+    - `LLM_TYPE_20B`: Represents a model with 20 billion parameters.
+    - `LLM_TYPE_27B`: Represents a model with 27 billion parameters.
+    - `LLM_TYPE_30B`: Represents a model with 30 billion parameters.
+    - `LLM_TYPE_32B`: Represents a model with 32 billion parameters.
+    - `LLM_TYPE_34B`: Represents a model with 34 billion parameters.
+    - `LLM_TYPE_35B`: Represents a model with 35 billion parameters.
+    - `LLM_TYPE_40B`: Represents a model with 40 billion parameters.
+    - `LLM_TYPE_65B`: Represents a model with 65 billion parameters.
+    - `LLM_TYPE_70B`: Represents a model with 70 billion parameters.
+    - `LLM_TYPE_236B`: Represents a model with 236 billion parameters.
+    - `LLM_TYPE_290B`: Represents a model with 290 billion parameters.
+    - `LLM_TYPE_314B`: Represents a model with 314 billion parameters.
+    - `LLM_TYPE_405B`: Represents a model with 405 billion parameters.
+    - `LLM_TYPE_671B`: Represents a model with 671 billion parameters.
+    - `LLM_TYPE_SMALL`: Represents a small-sized model.
+    - `LLM_TYPE_MEDIUM`: Represents a medium-sized model.
+    - `LLM_TYPE_LARGE`: Represents a large-sized model.
+    - `LLM_TYPE_XL`: Represents an extra-large-sized model.
+    - `LLM_TYPE_A1_7B`: Represents a model with a specific architecture and 1.7 billion parameters.
+    - `LLM_TYPE_A2_7B`: Represents a model with a specific architecture and 2.7 billion parameters.
+    - `LLM_TYPE_8x7B`: Represents a model with 8 instances of 7 billion parameters each.
+    - `LLM_TYPE_8x22B`: Represents a model with 8 instances of 22 billion parameters each.
+    - `LLM_TYPE_16x12B`: Represents a model with 16 instances of 12 billion parameters each.
+    - `LLM_TYPE_16x3_8B`: Represents a model with 16 instances of 3.8 billion parameters each.
+    - `LLM_TYPE_10B_128x3_66B`: Represents a model with 10 billion parameters and 128 instances of 3.66 billion parameters each.
+    - `LLM_TYPE_57B_A14B`: Represents a model with 57 billion parameters and a specific architecture with 14 billion parameters.
+    - `LLM_TYPE_17B_16E`: Represents a model with 17 billion parameters and 16 epochs, known as llama4 Scout.
+    - `LLM_TYPE_17B_128E`: Represents a model with 17 billion parameters and 128 epochs, known as llama4 Maverick.
+    - `LLM_TYPE_30B_A3B`: Represents a model with 30 billion parameters and a specific architecture with 3 billion parameters.
+    - `LLM_TYPE_235B_A22B`: Represents a model with 235 billion parameters and a specific architecture with 22 billion parameters.
+- **Description**: The `llm_type` enum defines a comprehensive list of large language model (LLM) types, each representing a model with a specific number of parameters, ranging from millions to hundreds of billions. This enumeration is used to categorize and identify different LLM configurations based on their size and architecture, facilitating the selection and management of models in applications that utilize various LLMs. The enum includes both specific parameter counts and general size categories like SMALL, MEDIUM, LARGE, and XL, as well as specialized configurations with multiple instances or specific architectures.
+
+
+---
+### llama\_layer\_posnet<!-- {{#data_structure:llama_layer_posnet}} -->
+- **Type**: `struct`
+- **Members**:
+    - `norm1`: Pointer to a ggml_tensor representing the first normalization layer.
+    - `norm1_b`: Pointer to a ggml_tensor representing the bias for the first normalization layer.
+    - `conv1`: Pointer to a ggml_tensor representing the first convolutional layer.
+    - `conv1_b`: Pointer to a ggml_tensor representing the bias for the first convolutional layer.
+    - `norm2`: Pointer to a ggml_tensor representing the second normalization layer.
+    - `norm2_b`: Pointer to a ggml_tensor representing the bias for the second normalization layer.
+    - `conv2`: Pointer to a ggml_tensor representing the second convolutional layer.
+    - `conv2_b`: Pointer to a ggml_tensor representing the bias for the second convolutional layer.
+    - `attn_norm`: Pointer to a ggml_tensor representing the normalization layer for attention.
+    - `attn_norm_b`: Pointer to a ggml_tensor representing the bias for the attention normalization layer.
+    - `attn_q`: Pointer to a ggml_tensor representing the query tensor in the attention mechanism.
+    - `attn_q_b`: Pointer to a ggml_tensor representing the bias for the query tensor in the attention mechanism.
+    - `attn_k`: Pointer to a ggml_tensor representing the key tensor in the attention mechanism.
+    - `attn_k_b`: Pointer to a ggml_tensor representing the bias for the key tensor in the attention mechanism.
+    - `attn_v`: Pointer to a ggml_tensor representing the value tensor in the attention mechanism.
+    - `attn_v_b`: Pointer to a ggml_tensor representing the bias for the value tensor in the attention mechanism.
+    - `attn_o`: Pointer to a ggml_tensor representing the output tensor in the attention mechanism.
+    - `attn_o_b`: Pointer to a ggml_tensor representing the bias for the output tensor in the attention mechanism.
+    - `norm`: Pointer to a ggml_tensor representing the final normalization layer.
+    - `norm_b`: Pointer to a ggml_tensor representing the bias for the final normalization layer.
+- **Description**: The `llama_layer_posnet` struct is a data structure designed to represent a layer in a neural network model, specifically incorporating elements of ResNet and attention mechanisms. It contains pointers to `ggml_tensor` objects for various components such as normalization layers, convolutional layers, and attention mechanisms, each with their respective biases. This struct is likely used in the context of a larger model to facilitate operations related to these neural network components.
+
+
+---
+### llama\_layer\_convnext<!-- {{#data_structure:llama_layer_convnext}} -->
+- **Type**: `struct`
+- **Members**:
+    - `dw`: Pointer to a depthwise convolution tensor.
+    - `dw_b`: Pointer to the bias tensor for the depthwise convolution.
+    - `norm`: Pointer to a normalization tensor.
+    - `norm_b`: Pointer to the bias tensor for normalization.
+    - `pw1`: Pointer to the first pointwise convolution tensor.
+    - `pw1_b`: Pointer to the bias tensor for the first pointwise convolution.
+    - `pw2`: Pointer to the second pointwise convolution tensor.
+    - `pw2_b`: Pointer to the bias tensor for the second pointwise convolution.
+    - `gamma`: Pointer to a gamma tensor used in normalization.
+- **Description**: The `llama_layer_convnext` struct is a data structure designed to represent a convolutional layer in a neural network, specifically using the ConvNeXt architecture. It contains pointers to various `ggml_tensor` objects that represent different components of the layer, including depthwise and pointwise convolutions, normalization, and associated biases. This struct is part of a larger framework for building and managing neural network models, and it encapsulates the necessary tensors for performing convolutional operations within a layer.
+
+
+---
+### llama\_layer<!-- {{#data_structure:llama_layer}} -->
+- **Type**: `struct`
+- **Members**:
+    - `attn_norm`: Pointer to a ggml_tensor for attention normalization.
+    - `attn_norm_b`: Pointer to a ggml_tensor for attention normalization bias.
+    - `attn_norm_2`: Pointer to a ggml_tensor for a second attention normalization.
+    - `attn_norm_2_b`: Pointer to a ggml_tensor for a second attention normalization bias.
+    - `attn_q_norm`: Pointer to a ggml_tensor for query attention normalization.
+    - `attn_q_norm_b`: Pointer to a ggml_tensor for query attention normalization bias.
+    - `attn_k_norm`: Pointer to a ggml_tensor for key attention normalization.
+    - `attn_k_norm_b`: Pointer to a ggml_tensor for key attention normalization bias.
+    - `attn_out_norm`: Pointer to a ggml_tensor for output attention normalization.
+    - `attn_out_norm_b`: Pointer to a ggml_tensor for output attention normalization bias.
+    - `attn_q_a_norm`: Pointer to a ggml_tensor for query attention normalization with additional parameters.
+    - `attn_kv_a_norm`: Pointer to a ggml_tensor for key-value attention normalization with additional parameters.
+    - `attn_sub_norm`: Pointer to a ggml_tensor for sub-attention normalization.
+    - `attn_post_norm`: Pointer to a ggml_tensor for post-attention normalization.
+    - `ffn_sub_norm`: Pointer to a ggml_tensor for feed-forward network sub-normalization.
+    - `attn_norm_cross`: Pointer to a ggml_tensor for cross-attention normalization.
+    - `attn_norm_enc`: Pointer to a ggml_tensor for encoder attention normalization.
+    - `wq`: Pointer to a ggml_tensor for query weights.
+    - `wk`: Pointer to a ggml_tensor for key weights.
+    - `wv`: Pointer to a ggml_tensor for value weights.
+    - `wo`: Pointer to a ggml_tensor for output weights.
+    - `wqkv`: Pointer to a ggml_tensor for combined query, key, and value weights.
+    - `wq_a`: Pointer to a ggml_tensor for additional query weights.
+    - `wq_b`: Pointer to a ggml_tensor for bias in query weights.
+    - `wkv_a_mqa`: Pointer to a ggml_tensor for multi-query attention weights.
+    - `wkv_b`: Pointer to a ggml_tensor for bias in key-value weights.
+    - `wk_b`: Pointer to a ggml_tensor for bias in key weights.
+    - `wv_b`: Pointer to a ggml_tensor for bias in value weights.
+    - `wq_cross`: Pointer to a ggml_tensor for cross-query weights.
+    - `wk_cross`: Pointer to a ggml_tensor for cross-key weights.
+    - `wv_cross`: Pointer to a ggml_tensor for cross-value weights.
+    - `wo_cross`: Pointer to a ggml_tensor for cross-output weights.
+    - `wq_enc`: Pointer to a ggml_tensor for encoder query weights.
+    - `wk_enc`: Pointer to a ggml_tensor for encoder key weights.
+    - `wv_enc`: Pointer to a ggml_tensor for encoder value weights.
+    - `wo_enc`: Pointer to a ggml_tensor for encoder output weights.
+    - `bq`: Pointer to a ggml_tensor for query bias.
+    - `bk`: Pointer to a ggml_tensor for key bias.
+    - `bv`: Pointer to a ggml_tensor for value bias.
+    - `bo`: Pointer to a ggml_tensor for output bias.
+    - `bqkv`: Pointer to a ggml_tensor for combined query, key, and value bias.
+    - `attn_rel_b`: Pointer to a ggml_tensor for relative position bias in attention.
+    - `attn_rel_b_enc`: Pointer to a ggml_tensor for encoder relative position bias in attention.
+    - `attn_rel_b_cross`: Pointer to a ggml_tensor for cross-attention relative position bias.
+    - `ffn_norm`: Pointer to a ggml_tensor for feed-forward network normalization.
+    - `ffn_norm_b`: Pointer to a ggml_tensor for feed-forward network normalization bias.
+    - `ffn_post_norm`: Pointer to a ggml_tensor for post feed-forward network normalization.
+    - `layer_out_norm`: Pointer to a ggml_tensor for layer output normalization.
+    - `layer_out_norm_b`: Pointer to a ggml_tensor for layer output normalization bias.
+    - `ffn_norm_exps`: Pointer to a ggml_tensor for feed-forward network normalization with experts.
+    - `ffn_norm_enc`: Pointer to a ggml_tensor for encoder feed-forward network normalization.
+    - `ffn_gate`: Pointer to a ggml_tensor for feed-forward network gate weights.
+    - `ffn_down`: Pointer to a ggml_tensor for feed-forward network down weights.
+    - `ffn_up`: Pointer to a ggml_tensor for feed-forward network up weights.
+    - `ffn_gate_enc`: Pointer to a ggml_tensor for encoder feed-forward network gate weights.
+    - `ffn_down_enc`: Pointer to a ggml_tensor for encoder feed-forward network down weights.
+    - `ffn_up_enc`: Pointer to a ggml_tensor for encoder feed-forward network up weights.
+    - `ffn_gate_inp`: Pointer to a ggml_tensor for input gate weights in feed-forward network.
+    - `ffn_gate_exps`: Pointer to a ggml_tensor for expert gate weights in feed-forward network.
+    - `ffn_down_exps`: Pointer to a ggml_tensor for expert down weights in feed-forward network.
+    - `ffn_up_exps`: Pointer to a ggml_tensor for expert up weights in feed-forward network.
+    - `ffn_gate_inp_shexp`: Pointer to a ggml_tensor for shared expert input gate weights.
+    - `ffn_gate_shexp`: Pointer to a ggml_tensor for shared expert gate weights.
+    - `ffn_down_shexp`: Pointer to a ggml_tensor for shared expert down weights.
+    - `ffn_up_shexp`: Pointer to a ggml_tensor for shared expert up weights.
+    - `ffn_gate_b`: Pointer to a ggml_tensor for feed-forward network gate bias.
+    - `ffn_down_b`: Pointer to a ggml_tensor for feed-forward network down bias.
+    - `ffn_up_b`: Pointer to a ggml_tensor for feed-forward network up bias.
+    - `ffn_act`: Pointer to a ggml_tensor for feed-forward network activation.
+    - `ffn_exp_probs_b`: Pointer to a ggml_tensor for expert probabilities bias in feed-forward network.
+    - `ssm_in`: Pointer to a ggml_tensor for input in mamba projection.
+    - `ssm_x`: Pointer to a ggml_tensor for x in mamba projection.
+    - `ssm_dt`: Pointer to a ggml_tensor for delta time in mamba projection.
+    - `ssm_out`: Pointer to a ggml_tensor for output in mamba projection.
+    - `ssm_conv1d`: Pointer to a ggml_tensor for 1D convolution in mamba.
+    - `ssm_a`: Pointer to a ggml_tensor for parameter a in mamba.
+    - `ssm_d`: Pointer to a ggml_tensor for parameter d in mamba.
+    - `ssm_conv1d_b`: Pointer to a ggml_tensor for 1D convolution bias in mamba.
+    - `ssm_dt_b`: Pointer to a ggml_tensor for delta time bias in mamba.
+    - `time_mix_w1`: Pointer to a ggml_tensor for time mix weight 1 in rwkv.
+    - `time_mix_w2`: Pointer to a ggml_tensor for time mix weight 2 in rwkv.
+    - `time_mix_lerp_x`: Pointer to a ggml_tensor for lerp x in time mix.
+    - `time_mix_lerp_w`: Pointer to a ggml_tensor for lerp w in time mix.
+    - `time_mix_lerp_k`: Pointer to a ggml_tensor for lerp k in time mix.
+    - `time_mix_lerp_v`: Pointer to a ggml_tensor for lerp v in time mix.
+    - `time_mix_lerp_r`: Pointer to a ggml_tensor for lerp r in time mix.
+    - `time_mix_lerp_g`: Pointer to a ggml_tensor for lerp g in time mix.
+    - `time_mix_lerp_fused`: Pointer to a ggml_tensor for fused lerp in time mix.
+    - `time_mix_first`: Pointer to a ggml_tensor for first time mix.
+    - `time_mix_decay`: Pointer to a ggml_tensor for decay in time mix.
+    - `time_mix_decay_w1`: Pointer to a ggml_tensor for decay weight 1 in time mix.
+    - `time_mix_decay_w2`: Pointer to a ggml_tensor for decay weight 2 in time mix.
+    - `time_mix_key`: Pointer to a ggml_tensor for key in time mix.
+    - `time_mix_key_b`: Pointer to a ggml_tensor for key bias in time mix.
+    - `time_mix_value`: Pointer to a ggml_tensor for value in time mix.
+    - `time_mix_value_b`: Pointer to a ggml_tensor for value bias in time mix.
+    - `time_mix_receptance`: Pointer to a ggml_tensor for receptance in time mix.
+    - `time_mix_receptance_b`: Pointer to a ggml_tensor for receptance bias in time mix.
+    - `time_mix_gate`: Pointer to a ggml_tensor for gate in time mix.
+    - `time_mix_w0`: Pointer to a ggml_tensor for weight 0 in rwkv7 time mix.
+    - `time_mix_a0`: Pointer to a ggml_tensor for a0 in rwkv7 time mix.
+    - `time_mix_a1`: Pointer to a ggml_tensor for a1 in rwkv7 time mix.
+    - `time_mix_a2`: Pointer to a ggml_tensor for a2 in rwkv7 time mix.
+    - `time_mix_v0`: Pointer to a ggml_tensor for v0 in rwkv7 time mix.
+    - `time_mix_v1`: Pointer to a ggml_tensor for v1 in rwkv7 time mix.
+    - `time_mix_v2`: Pointer to a ggml_tensor for v2 in rwkv7 time mix.
+    - `time_mix_g1`: Pointer to a ggml_tensor for g1 in rwkv7 time mix.
+    - `time_mix_g2`: Pointer to a ggml_tensor for g2 in rwkv7 time mix.
+    - `time_mix_k_k`: Pointer to a ggml_tensor for k_k in rwkv7 time mix.
+    - `time_mix_k_a`: Pointer to a ggml_tensor for k_a in rwkv7 time mix.
+    - `time_mix_r_k`: Pointer to a ggml_tensor for r_k in rwkv7 time mix.
+    - `time_mix_ln`: Pointer to a ggml_tensor for layer normalization in time mix.
+    - `time_mix_ln_b`: Pointer to a ggml_tensor for layer normalization bias in time mix.
+    - `time_mix_output`: Pointer to a ggml_tensor for output in time mix.
+    - `channel_mix_lerp_k`: Pointer to a ggml_tensor for lerp k in channel mix.
+    - `channel_mix_lerp_r`: Pointer to a ggml_tensor for lerp r in channel mix.
+    - `channel_mix_key`: Pointer to a ggml_tensor for key in channel mix.
+    - `channel_mix_receptance`: Pointer to a ggml_tensor for receptance in channel mix.
+    - `channel_mix_value`: Pointer to a ggml_tensor for value in channel mix.
+    - `rope_long`: Pointer to a ggml_tensor for long rope factors.
+    - `rope_short`: Pointer to a ggml_tensor for short rope factors.
+    - `rope_freqs`: Pointer to a ggml_tensor for rope frequencies.
+    - `wq_scale`: Pointer to a ggml_tensor for query weight scale.
+    - `wk_scale`: Pointer to a ggml_tensor for key weight scale.
+    - `wv_scale`: Pointer to a ggml_tensor for value weight scale.
+    - `wo_scale`: Pointer to a ggml_tensor for output weight scale.
+    - `ffn_gate_scale`: Pointer to a ggml_tensor for feed-forward network gate scale.
+    - `ffn_up_scale`: Pointer to a ggml_tensor for feed-forward network up scale.
+    - `ffn_down_scale`: Pointer to a ggml_tensor for feed-forward network down scale.
+    - `posnet`: Instance of llama_layer_posnet for positional network operations.
+    - `convnext`: Instance of llama_layer_convnext for convolutional network operations.
+- **Description**: The `llama_layer` struct is a comprehensive data structure designed to encapsulate various components of a neural network layer, particularly focusing on attention mechanisms, feed-forward networks, and normalization processes. It includes numerous pointers to `ggml_tensor` structures, which represent different weights, biases, and normalization parameters used in the layer's operations. The struct is organized into sections for normalization, attention, attention bias, relative position bias, feed-forward networks (including mixtures of experts and shared experts), mamba projections, and time and channel mixing. Additionally, it contains instances of `llama_layer_posnet` and `llama_layer_convnext` for handling positional and convolutional network operations, respectively. This struct is integral to defining the architecture and behavior of a layer within a larger model, providing the necessary parameters for complex neural computations.
+
+
+---
+### llama\_model<!-- {{#data_structure:llama_model}} -->
+- **Type**: `struct`
+- **Members**:
+    - `type`: Specifies the type of the model, initialized to LLM_TYPE_UNKNOWN.
+    - `arch`: Specifies the architecture of the model, initialized to LLM_ARCH_UNKNOWN.
+    - `name`: Holds the name of the model, defaulting to 'n/a'.
+    - `hparams`: Contains hyperparameters for the model.
+    - `vocab`: Represents the vocabulary used by the model.
+    - `tok_embd`: Pointer to a tensor for token embeddings.
+    - `type_embd`: Pointer to a tensor for type embeddings.
+    - `pos_embd`: Pointer to a tensor for position embeddings.
+    - `tok_norm`: Pointer to a tensor for token normalization.
+    - `tok_norm_b`: Pointer to a tensor for token normalization bias.
+    - `output_norm`: Pointer to a tensor for output normalization.
+    - `output_norm_b`: Pointer to a tensor for output normalization bias.
+    - `output`: Pointer to a tensor for the model's output.
+    - `output_b`: Pointer to a tensor for the model's output bias.
+    - `output_norm_enc`: Pointer to a tensor for encoder output normalization.
+    - `cls`: Pointer to a tensor for classifier weights.
+    - `cls_b`: Pointer to a tensor for classifier bias.
+    - `cls_out`: Pointer to a tensor for classifier output weights.
+    - `cls_out_b`: Pointer to a tensor for classifier output bias.
+    - `conv1d`: Pointer to a tensor for 1D convolution weights.
+    - `conv1d_b`: Pointer to a tensor for 1D convolution bias.
+    - `layers`: Vector of llama_layer structures representing the model's layers.
+    - `params`: Holds parameters specific to the llama model.
+    - `gguf_kv`: Unordered map for storing metadata key-value pairs.
+    - `devices`: Vector of devices used by the model.
+    - `tensors_by_name`: Vector of pairs mapping tensor names to tensor pointers.
+    - `t_load_us`: Stores the time taken to load the model in microseconds.
+    - `t_start_us`: Stores the start time of the model in microseconds.
+- **Description**: The `llama_model` struct is a comprehensive data structure designed to encapsulate the components and parameters of a machine learning model. It includes various attributes such as the model type, architecture, name, hyperparameters, and vocabulary. The struct also manages pointers to tensors for embeddings, normalization, and output, as well as layers and devices used in the model. Additionally, it maintains metadata and timing information related to model loading and execution. This struct is integral to defining and managing the state and configuration of a llama model within a machine learning framework.
+- **Member Functions**:
+    - [`llama_model::llama_model`](llama-model.cpp.driver.md#llama_modelllama_model)
+    - [`llama_model::~llama_model`](llama-model.cpp.driver.md#llama_modelllama_model)
+    - [`llama_model::load_stats`](llama-model.cpp.driver.md#llama_modelload_stats)
+    - [`llama_model::load_arch`](llama-model.cpp.driver.md#llama_modelload_arch)
+    - [`llama_model::load_hparams`](llama-model.cpp.driver.md#llama_modelload_hparams)
+    - [`llama_model::load_vocab`](llama-model.cpp.driver.md#llama_modelload_vocab)
+    - [`llama_model::load_tensors`](llama-model.cpp.driver.md#llama_modelload_tensors)
+    - [`llama_model::arch_name`](llama-model.cpp.driver.md#llama_modelarch_name)
+    - [`llama_model::type_name`](llama-model.cpp.driver.md#llama_modeltype_name)
+    - [`llama_model::desc`](llama-model.cpp.driver.md#llama_modeldesc)
+    - [`llama_model::size`](llama-model.cpp.driver.md#llama_modelsize)
+    - [`llama_model::n_tensors`](llama-model.cpp.driver.md#llama_modeln_tensors)
+    - [`llama_model::n_devices`](llama-model.cpp.driver.md#llama_modeln_devices)
+    - [`llama_model::n_elements`](llama-model.cpp.driver.md#llama_modeln_elements)
+    - [`llama_model::print_info`](llama-model.cpp.driver.md#llama_modelprint_info)
+    - [`llama_model::dev_layer`](llama-model.cpp.driver.md#llama_modeldev_layer)
+    - [`llama_model::dev_output`](llama-model.cpp.driver.md#llama_modeldev_output)
+    - [`llama_model::select_buft`](llama-model.cpp.driver.md#llama_modelselect_buft)
+    - [`llama_model::has_tensor_overrides`](llama-model.cpp.driver.md#llama_modelhas_tensor_overrides)
+    - [`llama_model::get_tensor`](llama-model.cpp.driver.md#llama_modelget_tensor)
+    - [`llama_model::get_rope_freq_base`](llama-model.cpp.driver.md#llama_modelget_rope_freq_base)
+    - [`llama_model::get_rope_freq_scale`](llama-model.cpp.driver.md#llama_modelget_rope_freq_scale)
+    - [`llama_model::get_rope_factors`](llama-model.cpp.driver.md#llama_modelget_rope_factors)
+    - [`llama_model::create_memory`](llama-model.cpp.driver.md#llama_modelcreate_memory)
+    - [`llama_model::build_graph`](llama-model.cpp.driver.md#llama_modelbuild_graph)
+
+

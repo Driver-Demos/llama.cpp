@@ -1,0 +1,7 @@
+
+## Files
+- **[BLIS.md](backend/BLIS.md.driver.md)**: The `BLIS.md` file in the `llama.cpp` codebase provides an installation manual for the BLIS software framework, detailing steps for compiling and installing BLIS, configuring `llama.cpp` with CMake, and addressing Intel-specific issues.
+- **[CANN.md](backend/CANN.md.driver.md)**: The `CANN.md` file in the `llama.cpp` codebase provides documentation on integrating the llama.cpp backend with the CANN architecture to support Ascend NPU, detailing supported operating systems, hardware, models, data types, and instructions for setup and usage.
+- **[CUDA-FEDORA.md](backend/CUDA-FEDORA.md.driver.md)**: The `CUDA-FEDORA.md` file provides a comprehensive guide for setting up Nvidia CUDA in a toolbox container on Fedora systems, detailing prerequisites, installation steps, and troubleshooting tips.
+- **[OPENCL.md](backend/OPENCL.md.driver.md)**: The `OPENCL.md` file in the `llama.cpp` codebase provides documentation on setting up and using the OpenCL backend for `llama.cpp`, including supported operating systems, hardware, data types, and detailed instructions for building on Android and Windows 11 Arm64 platforms.
+- **[SYCL.md](backend/SYCL.md.driver.md)**: The `SYCL.md` file in the `llama.cpp` codebase provides comprehensive documentation on setting up and using the SYCL backend for llama.cpp, detailing supported hardware, operating systems, installation instructions, and known issues for running the software on various GPUs, including Intel, Nvidia, and AMD.

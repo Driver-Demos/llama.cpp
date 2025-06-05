@@ -1,0 +1,8 @@
+
+## Files
+- **[gguf_convert_endian.py](scripts/gguf_convert_endian.py.driver.md)**: The `gguf_convert_endian.py` file in the `llama.cpp` codebase provides a script to convert the byte order of GGUF format model files, with options for dry-run and verbosity.
+- **[gguf_dump.py](scripts/gguf_dump.py.driver.md)**: The `gguf_dump.py` file in the `llama.cpp` codebase is a script for dumping metadata and tensor information from GGUF format files, with options for output in plain text, JSON, or markdown formats.
+- **[gguf_editor_gui.py](scripts/gguf_editor_gui.py.driver.md)**: The `gguf_editor_gui.py` file implements a graphical user interface for editing GGUF files, allowing users to view and modify metadata and tensor data within the files using PySide6 for the GUI components.
+- **[gguf_hash.py](scripts/gguf_hash.py.driver.md)**: The `gguf_hash.py` file in the `llama.cpp` codebase provides a script for calculating and displaying SHA-1, SHA-256, and UUID hashes of tensors in a GGUF format model file, with options for verbosity and progress display.
+- **[gguf_new_metadata.py](scripts/gguf_new_metadata.py.driver.md)**: The `gguf_new_metadata.py` file in the `llama.cpp` codebase provides a script for copying a GGUF file while allowing the addition, modification, or removal of metadata, with options for handling special tokens and chat templates.
+- **[gguf_set_metadata.py](scripts/gguf_set_metadata.py.driver.md)**: The `gguf_set_metadata.py` file in the `llama.cpp` codebase provides a script for modifying metadata values in GGUF format files, with options for dry-run and forced changes.

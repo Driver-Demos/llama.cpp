@@ -1,0 +1,2 @@
+# Purpose
+This script is a batch file for Windows that sets up the environment for Intel's oneAPI tools and executes a command-line interface (CLI) application, `llama-cli.exe`, with specific parameters. It initializes the environment using `setvars.bat`, sets an input string for the application, and runs the application with specified model and execution parameters. The file also includes licensing information under the MIT License.

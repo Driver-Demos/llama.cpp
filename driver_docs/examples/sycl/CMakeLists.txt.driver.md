@@ -1,0 +1,2 @@
+# Purpose
+This CMake configuration file defines the build instructions for a C++ executable named "llama-ls-sycl-device" using the source file "ls-sycl-device.cpp". It specifies the installation of the runtime target, links the executable with the "common" and "llama" libraries, as well as the CMake thread libraries, and enforces the use of C++17 standard features. The file is under the MIT license, as indicated by the comments.
