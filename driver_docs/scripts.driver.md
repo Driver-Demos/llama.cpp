@@ -1,5 +1,5 @@
 ## Folders
-- **[apple](scripts/apple.driver.md)**: The `apple` folder in the `llama.cpp` codebase contains a collection of shell scripts for validating iOS, macOS, visionOS, and tvOS applications with an embedded `llama.xcframework` using SwiftUI, each script tailored to handle specific platform requirements and authentication processes.
+- **[apple](scripts/apple.driver.md)**: The `apple` folder in the `llama.cpp` codebase contains a collection of shell scripts for validating applications across various Apple platforms, including iOS, macOS, visionOS, and tvOS, ensuring they are correctly built and embedded with the `llama.xcframework`.
 
 ## Files
 - **[build-info.sh](scripts/build-info.sh.driver.md)**: The `build-info.sh` file in the `llama.cpp` codebase generates build information including the build number, commit hash, compiler version, and target architecture.

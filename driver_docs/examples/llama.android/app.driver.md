@@ -1,5 +1,5 @@
 ## Folders
-- **[src](app/src.driver.md)**: The `src` folder in the `llama.cpp` codebase contains the `main` folder, which includes resources and configurations necessary for building an Android application.
+- **[src](app/src.driver.md)**: The `src` folder in the `llama.cpp` codebase contains the `main` folder, which houses the essential components for building an Android application, such as Java source files, UI elements, resource directories, and the AndroidManifest.xml.
 
 ## Files
 - **[.gitignore](app/.gitignore.driver.md)**: The `.gitignore` file in the `llama.cpp/examples/llama.android/app/` directory specifies that the `/build` directory should be ignored by Git.

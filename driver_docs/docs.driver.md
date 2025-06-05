@@ -1,7 +1,7 @@
 ## Folders
-- **[backend](docs/backend.driver.md)**: The `backend` folder in the `llama.cpp` codebase contains documentation files that provide detailed installation and setup guides for various software frameworks and architectures, including BLIS, CANN, CUDA on Fedora, OpenCL, and SYCL, to support different hardware and operating systems.
+- **[backend](docs/backend.driver.md)**: The `backend` folder in the `llama.cpp` codebase contains documentation files that provide detailed installation and setup instructions for various software frameworks and architectures, including BLIS, CANN, CUDA on Fedora, OpenCL, and SYCL, to support different hardware and operating systems.
 - **[development](docs/development.driver.md)**: The `development` folder in the `llama.cpp` codebase contains documentation files that provide guidance on debugging tests, adding new model architectures, and optimizing token generation performance.
-- **[multimodal](docs/multimodal.driver.md)**: The `multimodal` folder in the `llama.cpp` codebase contains documentation files providing detailed instructions for setting up, converting, and running various multimodal models, including Gemma 3, GLMV-EDGE, Granite Vision, LLaVA, MiniCPM, and MobileVLM, within the `llama.cpp` framework.
+- **[multimodal](docs/multimodal.driver.md)**: The `multimodal` folder in the `llama.cpp` codebase contains documentation files that provide detailed instructions for setting up, converting, and running various multimodal models, including Gemma 3, GLMV-EDGE, Granite Vision, LLaVA, MiniCPM, and MobileVLM, within the `llama.cpp` environment.
 
 ## Files
 - **[android.md](docs/android.md.driver.md)**: The `android.md` file in the `llama.cpp` codebase provides detailed instructions for building and running `llama.cpp` on Android devices using Termux and cross-compiling with the Android NDK.

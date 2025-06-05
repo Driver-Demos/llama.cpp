@@ -1,6 +1,6 @@
 ## Folders
 - **[llama.cpp.swift](llama.swiftui/llama.cpp.swift.driver.md)**: The `llama.cpp.swift` folder in the `llama.cpp` codebase contains a Swift implementation for managing and interacting with a Llama model context, as detailed in the `LibLlama.swift` file.
-- **[llama.swiftui](llama.swiftui/llama.swiftui.driver.md)**: The `llama.swiftui` folder in the `llama.cpp` codebase contains the structure and resources for a SwiftUI application, including asset catalogs, model state management, UI components for interacting with machine learning models, and the main application entry point.
+- **[llama.swiftui](llama.swiftui/llama.swiftui.driver.md)**: The `llama.swiftui` folder in the `llama.cpp` codebase contains resources, models, and UI components for a SwiftUI application focused on managing machine learning models, with an entry point defined in `llama_swiftuiApp.swift`.
 - **[llama.swiftui.xcodeproj](llama.swiftui/llama.swiftui.driver.md.xcodeproj)**: The `llama.swiftui.xcodeproj` folder in the `llama.cpp` codebase contains configuration files and data for setting up and managing the `llama.swiftui` project within Xcode, including workspace and project settings.
 
 ## Files

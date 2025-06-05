@@ -1,5 +1,5 @@
 ## Folders
-- **[deps](gguf-hash/deps.driver.md)**: The `deps` folder in the `llama.cpp` codebase contains subfolders for various hashing and bit manipulation libraries, including `rotate-bits` for bit rotation macros, `sha1` and `sha256` for SHA-1 and SHA-256 hashing algorithms, and `xxhash` for fast non-cryptographic hashing.
+- **[deps](gguf-hash/deps.driver.md)**: The `deps` folder in the `llama.cpp` codebase contains various subfolders with implementations and metadata for different hashing and bit manipulation algorithms, including `rotate-bits`, `sha1`, `sha256`, and `xxhash`.
 
 ## Files
 - **[CMakeLists.txt](gguf-hash/CMakeLists.txt.driver.md)**: The `CMakeLists.txt` file in the `llama.cpp/examples/gguf-hash` directory configures the build process for the `llama-gguf-hash` executable, specifying dependencies on `xxhash`, `sha1`, and `sha256` libraries, and setting the C++ standard to C++17.

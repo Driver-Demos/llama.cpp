@@ -1,5 +1,5 @@
 ## Folders
-- **[kernels](ggml-opencl/kernels.driver.md)**: The `kernels` folder in the `llama.cpp` codebase contains a comprehensive collection of OpenCL kernel files and a Python script, which implement various mathematical operations, data transformations, and activation functions optimized for different GPU architectures.
+- **[kernels](ggml-opencl/kernels.driver.md)**: The `kernels` folder in the `llama.cpp` codebase contains a comprehensive collection of OpenCL kernel files and a Python script, which implement various mathematical and data processing operations such as addition, sorting, activation functions, matrix operations, normalization, and data transformation, optimized for different GPU architectures.
 
 ## Files
 - **[CMakeLists.txt](ggml-opencl/CMakeLists.txt.driver.md)**: The `CMakeLists.txt` file in the `llama.cpp/ggml/src/ggml-opencl` directory configures the build process for the `ggml-opencl` target, including finding required packages, setting up OpenCL kernels, and handling optional features like profiling and kernel embedding.
